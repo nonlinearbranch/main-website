@@ -2,31 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Not found</title>
+  <title>Not Found | Rajat</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
-
   <style>
     :root{
       --bg:#f7f6f2;
       --fg:#121212;
       --muted:#6b6b6b;
       --line:#e2e1dc;
-      --maxw:640px;
+      --maxw:680px;
     }
-
     body.dark{
       --bg:#070707;
       --fg:#f5f5f5;
       --muted:#9a9a9a;
       --line:#151515;
     }
-
     *{margin:0;padding:0;box-sizing:border-box}
     html,body{height:100%}
-
     body{
       background:var(--bg);
       color:var(--fg);
@@ -38,42 +32,6 @@
       justify-content:center;
       padding:24px;
     }
-
-    .wrap{
-      max-width:var(--maxw);
-      width:100%;
-    }
-
-    .code{
-      font-family:"Libre Baskerville", serif;
-      font-size:clamp(42px,8vw,64px);
-      font-weight:700;
-      letter-spacing:-0.01em;
-      margin-bottom:16px;
-    }
-
-    .text{
-      font-size:1.05rem;
-      color:var(--muted);
-      max-width:55ch;
-    }
-
-    .links{
-      margin-top:28px;
-      font-size:0.95rem;
-    }
-
-    .links a{
-      color:var(--fg);
-      text-decoration:none;
-      margin-right:16px;
-      border-bottom:1px dashed transparent;
-    }
-
-    .links a:hover{
-      border-color:var(--line);
-    }
-
     .mode{
       position:fixed;
       top:18px;
@@ -86,44 +44,52 @@
       color:var(--fg);
       cursor:pointer;
     }
+    .wrap{max-width:var(--maxw)}
+    h1{
+      font-family:"Libre Baskerville", serif;
+      font-size:clamp(38px,8vw,62px);
+      margin-bottom:14px;
+    }
+    p{
+      color:var(--muted);
+      margin-bottom:20px;
+    }
+    .links a{
+      color:var(--fg);
+      text-decoration:none;
+      margin-right:16px;
+      border-bottom:1px dashed transparent;
+    }
+    .links a:hover{border-color:var(--line)}
   </style>
 </head>
 <body>
-
 <button class="mode" aria-label="Toggle dark mode">MODE</button>
-
 <div class="wrap">
-  <div class="code">404</div>
-  <p class="text">
-    This page does not exist, or the link is broken.
-    Nothing serious. You can head back to the homepage or just start again.
-  </p>
-
+  <h1>404</h1>
+  <p>This page does not exist. You can continue from the core sections below.</p>
   <div class="links">
     <a href="/">Home</a>
-    <a href="mailto:rajat.tech@protonmail.com">Email</a>
+    <a href="/papers/">Papers</a>
+    <a href="/projects/">Projects</a>
+    <a href="/blogs/">Blogs</a>
   </div>
 </div>
-
 <script>
-  // Dark mode toggle (same logic as main site)
   (() => {
-    const btn = document.querySelector('.mode');
-    const key = 'theme';
-    const apply = t => document.body.classList.toggle('dark', t === 'dark');
-
+    const btn = document.querySelector(".mode");
+    const key = "theme";
+    const apply = t => document.body.classList.toggle("dark", t === "dark");
     try{
       const saved = localStorage.getItem(key);
       if(saved) apply(saved);
     }catch(e){}
-
     btn.onclick = () => {
-      const dark = document.body.classList.contains('dark');
-      apply(dark ? 'light' : 'dark');
-      try{ localStorage.setItem(key, dark ? 'light':'dark'); }catch(e){}
+      const dark = document.body.classList.contains("dark");
+      apply(dark ? "light" : "dark");
+      try{ localStorage.setItem(key, dark ? "light" : "dark"); }catch(e){}
     };
   })();
 </script>
-
 </body>
 </html>

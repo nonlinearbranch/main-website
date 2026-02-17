@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Papers | Rajat</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Papers and research notes by Rajat." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f7f6f2;
+      --fg:#121212;
+      --muted:#6b6b6b;
+      --line:#e2e1dc;
+      --panel:#fcfbf8;
+      --maxw:860px;
+    }
+    body.dark{
+      --bg:#070707;
+      --fg:#f5f5f5;
+      --muted:#9a9a9a;
+      --line:#151515;
+      --panel:#0f0f0f;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      background:var(--bg);
+      color:var(--fg);
+      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height:1.7;
+      -webkit-font-smoothing:antialiased;
+    }
+    .mode{
+      position:fixed;
+      top:18px;
+      right:18px;
+      z-index:10;
+      font-size:0.7rem;
+      letter-spacing:0.14em;
+      padding:8px 10px;
+      border:1px solid var(--line);
+      background:none;
+      color:var(--fg);
+      cursor:pointer;
+    }
+    .site-nav{
+      max-width:var(--maxw);
+      margin:24px auto 0;
+      padding:0 20px;
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+      font-size:0.9rem;
+    }
+    .site-nav a{
+      text-decoration:none;
+      color:var(--muted);
+      border-bottom:1px dashed transparent;
+    }
+    .site-nav a.active,
+    .site-nav a:hover{
+      color:var(--fg);
+      border-color:var(--line);
+    }
+    main{
+      max-width:var(--maxw);
+      margin:50px auto 72px;
+      padding:0 20px;
+    }
+    h1{
+      font-family:"Libre Baskerville", serif;
+      font-size:clamp(30px,6vw,48px);
+      margin-bottom:12px;
+    }
+    .intro{
+      color:var(--muted);
+      max-width:66ch;
+      margin-bottom:34px;
+    }
+    .list{
+      display:grid;
+      gap:14px;
+    }
+    .item{
+      border:1px solid var(--line);
+      background:var(--panel);
+      padding:16px;
+    }
+    .item .meta{
+      color:var(--muted);
+      font-size:0.86rem;
+      text-transform:uppercase;
+      letter-spacing:0.08em;
+      margin-bottom:7px;
+    }
+    .item h2{
+      font-size:1.05rem;
+      margin-bottom:6px;
+      font-family:"Libre Baskerville", serif;
+    }
+    .item p{
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+  </style>
+</head>
+<body>
+<button class="mode" aria-label="Toggle dark mode">MODE</button>
+<nav class="site-nav" aria-label="Main navigation">
+  <a href="/">Home</a>
+  <a class="active" href="/papers/">Papers</a>
+  <a href="/projects/">Projects</a>
+  <a href="/blogs/">Blogs</a>
+</nav>
+<main>
+  <h1>Papers</h1>
+  <p class="intro">
+    Notes, technical writings, and ongoing research drafts. Replace these placeholders with your final entries.
+  </p>
+  <div class="list">
+    <article class="item">
+      <div class="meta">Draft | 2026</div>
+      <h2>On Cross-Domain Generalization in Learned Robotics Policies</h2>
+      <p>Explores transfer gaps between simulation and physical systems using structure-aware training.</p>
+    </article>
+    <article class="item">
+      <div class="meta">Working Note | 2026</div>
+      <h2>Optimization Geometry for Deep Networks: A Practical Perspective</h2>
+      <p>A concise note connecting curvature intuition with debugging behavior in training pipelines.</p>
+    </article>
+    <article class="item">
+      <div class="meta">Idea Log | 2025</div>
+      <h2>Minimal Mathematical Priors for Safer Control Systems</h2>
+      <p>Sketches design constraints for building interpretable control logic around learned components.</p>
+    </article>
+  </div>
+</main>
+<script>
+  (() => {
+    const btn = document.querySelector(".mode");
+    const key = "theme";
+    const apply = t => document.body.classList.toggle("dark", t === "dark");
+    try{
+      const saved = localStorage.getItem(key);
+      if(saved) apply(saved);
+    }catch(e){}
+    btn.onclick = () => {
+      const dark = document.body.classList.contains("dark");
+      apply(dark ? "light" : "dark");
+      try{ localStorage.setItem(key, dark ? "light" : "dark"); }catch(e){}
+    };
+  })();
+</script>
+</body>
+</html>

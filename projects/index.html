@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Projects | Rajat</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Projects by Rajat." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f7f6f2;
+      --fg:#121212;
+      --muted:#6b6b6b;
+      --line:#e2e1dc;
+      --panel:#fcfbf8;
+      --maxw:860px;
+    }
+    body.dark{
+      --bg:#070707;
+      --fg:#f5f5f5;
+      --muted:#9a9a9a;
+      --line:#151515;
+      --panel:#0f0f0f;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      background:var(--bg);
+      color:var(--fg);
+      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height:1.7;
+      -webkit-font-smoothing:antialiased;
+    }
+    .mode{
+      position:fixed;
+      top:18px;
+      right:18px;
+      z-index:10;
+      font-size:0.7rem;
+      letter-spacing:0.14em;
+      padding:8px 10px;
+      border:1px solid var(--line);
+      background:none;
+      color:var(--fg);
+      cursor:pointer;
+    }
+    .site-nav{
+      max-width:var(--maxw);
+      margin:24px auto 0;
+      padding:0 20px;
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+      font-size:0.9rem;
+    }
+    .site-nav a{
+      text-decoration:none;
+      color:var(--muted);
+      border-bottom:1px dashed transparent;
+    }
+    .site-nav a.active,
+    .site-nav a:hover{
+      color:var(--fg);
+      border-color:var(--line);
+    }
+    main{
+      max-width:var(--maxw);
+      margin:50px auto 72px;
+      padding:0 20px;
+    }
+    h1{
+      font-family:"Libre Baskerville", serif;
+      font-size:clamp(30px,6vw,48px);
+      margin-bottom:12px;
+    }
+    .intro{
+      color:var(--muted);
+      max-width:66ch;
+      margin-bottom:34px;
+    }
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:14px;
+    }
+    .card{
+      border:1px solid var(--line);
+      background:var(--panel);
+      padding:18px;
+    }
+    .card h2{
+      font-size:1.08rem;
+      margin-bottom:6px;
+      font-family:"Libre Baskerville", serif;
+    }
+    .card p{
+      color:var(--muted);
+      margin-bottom:12px;
+      font-size:0.95rem;
+    }
+    .card a{
+      color:var(--fg);
+      text-decoration:none;
+      border-bottom:1px dashed transparent;
+      font-size:0.92rem;
+    }
+    .card a:hover{border-color:var(--line)}
+    @media (max-width:760px){
+      .cards{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+<button class="mode" aria-label="Toggle dark mode">MODE</button>
+<nav class="site-nav" aria-label="Main navigation">
+  <a href="/">Home</a>
+  <a href="/papers/">Papers</a>
+  <a class="active" href="/projects/">Projects</a>
+  <a href="/blogs/">Blogs</a>
+</nav>
+<main>
+  <h1>Projects</h1>
+  <p class="intro">
+    Detailed project pages are organized as subroutes for clean indexing and easy expansion.
+  </p>
+  <div class="cards">
+    <article class="card">
+      <h2>Project 1</h2>
+      <p>First project space. Use this page for your complete writeup, visuals, and links.</p>
+      <a href="/projects/project-1/">Open /projects/project-1/</a>
+    </article>
+    <article class="card">
+      <h2>Project 2</h2>
+      <p>Second project space. Keep each project fully isolated with its own route.</p>
+      <a href="/projects/project-2/">Open /projects/project-2/</a>
+    </article>
+    <article class="card">
+      <h2>Upcoming</h2>
+      <p>Add more folders like /projects/project-3/ whenever you want a new independent project page.</p>
+      <a href="/">Return to homepage</a>
+    </article>
+  </div>
+</main>
+<script>
+  (() => {
+    const btn = document.querySelector(".mode");
+    const key = "theme";
+    const apply = t => document.body.classList.toggle("dark", t === "dark");
+    try{
+      const saved = localStorage.getItem(key);
+      if(saved) apply(saved);
+    }catch(e){}
+    btn.onclick = () => {
+      const dark = document.body.classList.contains("dark");
+      apply(dark ? "light" : "dark");
+      try{ localStorage.setItem(key, dark ? "light" : "dark"); }catch(e){}
+    };
+  })();
+</script>
+</body>
+</html>
