@@ -86,6 +86,16 @@
       border:1px solid var(--line);
       background:var(--panel);
       padding:18px;
+      display:block;
+    }
+    .card-link{
+      text-decoration:none;
+      color:inherit;
+      transition:border-color 140ms ease, transform 140ms ease;
+    }
+    .card-link:hover{
+      border-color:var(--muted);
+      transform:translateY(-2px);
     }
     .card h2{
       font-size:1.08rem;
@@ -100,6 +110,11 @@
     .card a{
       color:var(--fg);
       text-decoration:none;
+      border-bottom:1px dashed transparent;
+      font-size:0.92rem;
+    }
+    .card span{
+      color:var(--fg);
       border-bottom:1px dashed transparent;
       font-size:0.92rem;
     }
@@ -123,19 +138,19 @@
     Detailed project pages are organized as subroutes for clean indexing and easy expansion.
   </p>
   <div class="cards">
-    <article class="card">
+    <a class="card card-link" href="/projects/project-1/">
       <h2>Project 1</h2>
-      <p>First project space. Use this page for your complete writeup, visuals, and links.</p>
-      <a href="/projects/project-1/">Open /projects/project-1/</a>
-    </article>
-    <article class="card">
+      <p>Project 1 page.</p>
+      <span>Open /projects/project-1/</span>
+    </a>
+    <a class="card card-link" href="/projects/project-2/">
       <h2>Project 2</h2>
-      <p>Second project space. Keep each project fully isolated with its own route.</p>
-      <a href="/projects/project-2/">Open /projects/project-2/</a>
-    </article>
+      <p>Project 2 page.</p>
+      <span>Open /projects/project-2/</span>
+    </a>
     <article class="card">
       <h2>Upcoming</h2>
-      <p>Add more folders like /projects/project-3/ whenever you want a new independent project page.</p>
+      <p>More project routes will be added as work gets published.</p>
       <a href="/">Return to homepage</a>
     </article>
   </div>

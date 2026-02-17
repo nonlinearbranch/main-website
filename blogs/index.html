@@ -82,6 +82,14 @@
       background:var(--panel);
       padding:16px;
       margin-bottom:12px;
+      display:block;
+      text-decoration:none;
+      color:inherit;
+      transition:border-color 140ms ease, transform 140ms ease;
+    }
+    .post:hover{
+      border-color:var(--muted);
+      transform:translateY(-2px);
     }
     .date{
       color:var(--muted);
@@ -112,23 +120,18 @@
 <main>
   <h1>Blogs</h1>
   <p class="intro">
-    Lightweight entries for ideas, implementation notes, and progress updates.
+    Blog pages are set up and will be filled as posts are published.
   </p>
-  <article class="post">
-    <div class="date">Feb 2026</div>
-    <h2>What I Learned While Structuring a Research-First Website</h2>
-    <p>A short note on building clear routes and long-term maintainability for personal work.</p>
-  </article>
-  <article class="post">
-    <div class="date">Jan 2026</div>
-    <h2>Why I Split Projects into Independent Subpages</h2>
-    <p>Using dedicated URL branches makes writing, indexing, and updates significantly cleaner.</p>
-  </article>
-  <article class="post">
-    <div class="date">Dec 2025</div>
-    <h2>Math and Engineering Notes from Current Work</h2>
-    <p>Selected thought fragments around optimization, control, and practical modeling assumptions.</p>
-  </article>
+  <a class="post" href="/blogs/research-notes/">
+    <div class="date">Blog Route 1</div>
+    <h2>Research Notes</h2>
+    <p>Opens a dedicated page for future research notes.</p>
+  </a>
+  <a class="post" href="/blogs/build-logs/">
+    <div class="date">Blog Route 2</div>
+    <h2>Build Logs</h2>
+    <p>Opens a dedicated page for future build and progress logs.</p>
+  </a>
 </main>
 <script>
   (() => {
