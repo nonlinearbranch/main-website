@@ -727,7 +727,7 @@
         <div class="actions">
           <a class="btn btn-primary"
             href="https://github.com/nonlinearbranch/Octave-Gesture-Control-Application">Github</a>
-          <button id="downloadBtn" class="btn btn-secondary" type="button" disabled>Download (Soon)</button>
+          <a id="downloadBtn" class="btn btn-secondary" href="octave-1.0.0-setup.exe" download>Download</a>
         </div>
       </div>
     </section>
@@ -738,30 +738,7 @@
       <span class="chev c3"></span>
     </div>
   </main>
-  <script>
-    (() => {
-      const btn = document.getElementById("downloadBtn");
-      if (!btn) return;
-      btn.addEventListener("click", () => {
-        const content = [
-          "Octave",
-          "Gesture + Voice Control for Desktop",
-          "Status: In Progress",
-          "",
-          "More details coming soon."
-        ].join("\n");
-        const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "octave-overview.txt";
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        setTimeout(() => URL.revokeObjectURL(url), 600);
-      });
-    })();
-  </script>
+
 </body>
 
 </html>
